@@ -1,0 +1,27 @@
+body
+{
+    background: fixed;
+    background-color: #faebd7;
+}
+
+.text
+{
+    text-align: center;
+    text-decoration: dashed;
+    text-decoration-color: #0000;
+    text-shadow: 2px 1px #0000;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: xx-large;
+    font-weight: 100;
+}
+
+.label
+{
+    text-decoration: dashed;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.button
+{
+    box-shadow: 2px 2px #000;
+}

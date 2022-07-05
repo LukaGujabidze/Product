@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Password Generator</title>
+</head>
+<body>
+    <style>
+        body
+{
+    background-color: #faebd7;
+}
+
+.text
+{
+    text-align: center;
+    text-decoration: dashed;
+    text-shadow: 2px 1px #0000;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: xx-large;
+    font-weight: 100;
+}
+
+.label
+{
+    text-decoration: dashed;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.button
+{
+    box-shadow: 2px 2px #000;
+}
+    </style>
+    <h1 class="text">Password Generator</h1>
+    <hr>
+    <p style="text-decoration: red;">Your Passowrd:</p>
+    <hr>
+    <input type="text"  value="{{ password }}" id="myInput"> 
+    <button onclick="myFunction()">Copy</button>
+    <br>
+    <br>
+    <a href="index.html"><span style="color: red;">Go on main page?</span></a>
+    <script>
+        function myFunction() {
+          /* Get the text field */
+          var copyText = document.getElementById("myInput");
+        
+          /* Select the text field */
+          copyText.select();
+          copyText.setSelectionRange(0, 99999); /* For mobile devices */
+        
+          /* Copy the text inside the text field */
+          navigator.clipboard.writeText(copyText.value);
+          
+        }
+    </script>
+        
+</body>
+</html>
