@@ -1,0 +1,67 @@
+##DO NOT RUN IT UNLESS YOU WANT
+
+1. Wipe Your Entire Drive
+This command deletes everything from a given drive. If run against critical system partitions (like C:), you’ll brick the machine.
+
+powershell
+Copy code
+Remove-Item -Path C:\* -Recurse -Force
+💥 Effect: Deletes all files and folders on your C: drive, even system files, leaving your OS unbootable.
+
+2. Format Your Disk
+This will wipe out all data on a disk.
+
+powershell
+Copy code
+Get-Volume -DriveLetter C | Format-Volume -Force
+💥 Effect: Erases everything on the drive and formats it, similar to running a factory reset but without an OS reinstall.
+
+3. Delete System Files and Registry
+This will remove the Windows folder containing core OS files.
+
+powershell
+Copy code
+Remove-Item -Path C:\Windows\System32 -Recurse -Force
+💥 Effect: Once this folder is deleted, your system will likely crash immediately and won’t boot again.
+
+4. Shutdown in a Loop
+This creates an infinite shutdown loop. Every time the machine boots, it will immediately shut down.
+
+powershell
+Copy code
+while ($true) { Stop-Computer -Force }
+💥 Effect: You won’t have time to interrupt or fix it before the next shutdown occurs.
+
+5. Kill Critical Processes
+Killing core processes like wininit.exe or csrss.exe will cause a blue screen of death (BSOD).
+
+powershell
+Copy code
+Stop-Process -Name wininit -Force
+💥 Effect: A BSOD will occur immediately, and the system will crash.
+
+6. Disable All Network Adapters
+This will block the system from accessing any network.
+
+powershell
+Copy code
+Get-NetAdapter | Disable-NetAdapter -Confirm:$false
+💥 Effect: All network interfaces will be disabled, making the machine completely offline.
+
+7. Add Infinite Files to Fill Disk Space
+This loop will keep creating files until your disk is full.
+
+powershell
+Copy code
+while ($true) { New-Item -Path C:\Temp\file_$(Get-Random).txt }
+💥 Effect: Exhausts all disk space, potentially crashing your OS due to a lack of space.
+
+8. Disable User Account Control (UAC)
+This compromises security by disabling UAC, making it easier for malware to run without user consent.
+
+powershell
+Copy code
+Set-ItemProperty -Path "HKLM:\Software\Microsoft\Windows\CurrentVersion\Policies\System" -Name "EnableLUA" -Value 0
+Restart-Computer
+💥 Effect: Disables UAC, opening the door for malicious code execution.
+
